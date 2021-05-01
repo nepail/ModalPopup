@@ -46,11 +46,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
-                @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                <td>
+                    <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addEmployee"
+                            data-url="@Url.Action("Edit","Employees",new { id=item.Id})">
+                        編輯
+                    </button>
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
                     @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>*@
+                </td>
             </tr>
         }
     </tbody>

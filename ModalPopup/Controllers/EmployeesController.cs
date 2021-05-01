@@ -35,5 +35,11 @@ namespace ModalPopup.Controllers
             _context.SaveChanges();
             return PartialView("_EmployeeModelPartial", emp);
         }
+
+        public IActionResult Edit(int id)
+        {
+            var employee = _context.Employees.Where(x => x.Id == id).FirstOrDefault();
+            return PartialView("_EditEmployeeModelPartial", employee);
+        }
     }
 }
