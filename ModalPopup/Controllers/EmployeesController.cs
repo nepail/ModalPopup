@@ -41,5 +41,35 @@ namespace ModalPopup.Controllers
             var employee = _context.Employees.Where(x => x.Id == id).FirstOrDefault();
             return PartialView("_EditEmployeeModelPartial", employee);
         }
+
+        [HttpPost]
+        public IActionResult Edit(Employee emp)
+        {
+            _context.Employees.Update(emp);
+            _context.SaveChanges();
+            return PartialView("_EditEmployeeModelPartial", emp);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var employee = _context.Employees.Where(x => x.Id == id).FirstOrDefault();
+            return PartialView("_DetailEmployeeModelPartail", employee);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var employee = _context.Employees.Where(x => x.Id == id).FirstOrDefault();
+            return PartialView("_DeleteEmployeeModelPartial", employee);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Employee emp)
+        {
+            //var employee = _context.Employees.Where(x => x.Id == emp.Id).FirstOrDefault();
+            _context.Employees.Remove(emp);
+            _context.SaveChanges();
+            return PartialView("_DeleteEmployeeModelPartial", emp);
+        }
+
     }
 }

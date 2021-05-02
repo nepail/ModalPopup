@@ -51,9 +51,20 @@
                             data-url="@Url.Action("Edit","Employees",new { id=item.Id})">
                         編輯
                     </button>
+
+                    <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addEmployee"
+                            data-url="@Url.Action("Details","Employees",new { id=item.Id})">
+                        明細
+                    </button>
+
+                    <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addEmployee"
+                            data-url="@Url.Action("Delete","Employees",new { id=item.Id})">
+                        刪除
+                    </button>
+
                     @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                      @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
                 </td>
             </tr>
         }
